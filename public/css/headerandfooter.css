@@ -1,0 +1,261 @@
+:root{
+    --back-color: #111111;
+    --text-color: #f0f0f0;
+    --footer-content: rgba(255, 255, 255, 0.63);
+    --poppins: 'Roboto', 'sans-serif';
+}
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: var(--poppins);
+}
+header.header, footer.footer{
+    width: 100%;
+    min-height: 4rem;
+    background-color: var(--back-color);
+    display: grid;
+    justify-items: center;
+    box-sizing: border-box;
+    padding: 3px;
+}
+header.header .header-container,
+footer.footer .footer-container{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1.1rem;
+    position: relative;
+}
+.logo{
+    width: 4rem;
+    height: 4rem;
+}
+.collapse-div, .buttons-div{
+    display: flex;
+    gap: 20px;
+}
+.collapse-div a, .buttons-div a{
+    color: var(--text-color);
+    font-weight: 600;
+    transition: all ease-in-out 0.3s;
+    position: relative;
+}
+.collapse-div a::after,
+.overlay .overlay-content a::after{
+    content:"";
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    left: 0; bottom: -5px;
+    background-color: var(--text-color);
+    transform-origin: left;
+	transition: transform .5s ease;
+	transform: scaleX(0);
+}
+.collapse-div a:hover{
+    scale: 1.05;
+}
+.collapse-div a:hover::after,
+.overlay .overlay-content a:hover::after{
+    transform: scaleX(1);
+}
+.buttons-div .button{
+    cursor: pointer;
+    padding: 7px;
+    border: 2px solid var(--text-color);
+    border-radius: 10px;
+    transition: all ease-in-out 0.3s;
+}
+.buttons-div .button:hover{
+    background-color: var(--text-color);
+    color: var(--back-color);
+}
+.hamburger{
+    position: absolute;
+    display: none;
+    top: 15%;
+    right: 0;
+    margin-right: 5rem;
+    width: 3rem;
+    height: 3rem;
+    transition: 0.3s;
+}
+.hamburger .hamburger-inner{
+    width: 100%;
+    height: 100%;
+    background-color: var(--text-color);
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    cursor: pointer;
+}
+.hamburger span{
+    display: block;
+    position: relative;
+    width: 35px;
+    height: 4px;
+    background-color: var(--back-color);
+    border-radius: 20px;
+    transition: all ease-in-out 0.3s;
+}
+.hamburger span::before,
+.hamburger span::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 35px;
+    height: 4px;
+    background-color: var(--back-color);
+    border-radius: 20px;
+}
+.hamburger span::before{
+    top: -10px;
+}
+.hamburger span::after{
+    bottom: -10px;
+}
+
+.overlay{
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+.overlay.active{
+    width: 100%;
+}
+.overlay .closeBtn{
+    position: absolute;
+    top: 1.5rem;
+    right: 3rem;
+    font-size: 5rem;
+    color: var(--text-color);
+}
+
+body.scroll-lock{
+    overflow: hidden !important;
+}
+.overlay .overlay-content{
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.overlay .overlay-content a{
+    width: fit-content;
+    position: relative;
+    font-size: 2rem;
+    color: var(--text-color);
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+
+/* starting with footer */
+footer.footer .footer-container{
+    align-items: flex-start;
+    gap: 30px;
+    margin:20px 0;
+    padding: 5px 0;
+}
+footer.footer .footer-content{
+    color: var(--footer-content);
+    font-size: 1.3rem;
+}
+.footer-content h3{
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+    color: var(--text-color)
+}
+.footer-content a{
+    color: var(--footer-content);
+}
+.footer-content a:hover{
+    color: var(--text-color)
+}
+
+.footer-container .footer-form{
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 5%), inset 0;
+    font-size: 1.3rem;
+    color: var(--text-color)
+}
+.footer-form form{
+    margin-top: 10px;
+}
+.footer-form input{
+    font-size: 1.1rem;
+    box-sizing: border-box;
+    padding: 7px;
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+.footer-form button{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+    box-sizing: border-box;
+    padding: 7px;
+    height: 40px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 10px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(
+    to right,
+    #29323c,
+    #485563,
+    #2b5876,
+    #4e4376
+  );
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+.footer-form button:hover{
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.copyright{
+    color: var(--text-color);
+    padding: 10px;
+}
+/* Turn hamburger into an X */
+
+@media (max-width: 768px){
+    .collapse-div, .signup{
+        display: none;
+    }
+    .hamburger{
+        display: block;
+    }
+}
