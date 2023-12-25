@@ -5,8 +5,28 @@ const expressLayouts = require("express-ejs-layouts");
 const db = require("./config/mongoose");
 
 
+const session = require("express-session");
+const passport = require("passport");
+const MognoStore = require("connect-mongo");
+const MongoStore = require('connect-mongo');
+
+
 
 const app = express();
+
+app.use(session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: true,
+    store:MongoStore.create({
+        mongoUrl: process.env.DB_CONNECT,
+    }),
+    cookie:{maxAge: new Date(Date.now() + (3600000))},
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());

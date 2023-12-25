@@ -370,6 +370,12 @@ input::placeholder{
     .form-wrapper form{
         width: 80%;
     }
+    .hero-main{
+        font-size: 2rem;
+    }
+    .hero-title .header{
+        font-size: 3rem
+    }
 }
 
 
@@ -378,5 +384,11 @@ input::placeholder{
     
     .form-wrapper form{
         width: 100%;
+    }
+    .hero-main{
+        font-size: 1rem;
+    }
+    .hero-title .header{
+        font-size: 2rem;
     }
 }

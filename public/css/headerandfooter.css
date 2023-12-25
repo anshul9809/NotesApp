@@ -245,6 +245,30 @@ footer.footer .footer-content{
     transition: all .4s ease-in-out;
 }
 
+/* header search bar */
+
+.search-form-top{
+    width: 50%;
+}
+.search-form-top input{
+    width: 100%;
+    border-radius: 10px;
+    height: 2.5rem;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 1.4rem;
+    box-shadow:inset 
+    0px 0px 5px 0px grey,
+    0px 0px 0px 0px grey,
+    0px 0px 0px 0px white,
+    0px 0px 0px 0px white;
+}
+
+/* header search bar ends here */
+
+
 .copyright{
     color: var(--text-color);
     padding: 10px;

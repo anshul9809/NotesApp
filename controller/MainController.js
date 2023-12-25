@@ -10,7 +10,10 @@ module.exports.home = expressAsyncHandler(async (req,res)=>{
         title: "Notes App",
         description: "A simple notes app for you"
     };
-    return res.render("index", locals);
+    return res.render("index", {
+        locals,
+        layout: "../views/layouts/mainLayout",
+    });
 });
 
 // about page
