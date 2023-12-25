@@ -3,6 +3,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 body::-webkit-scrollbar{
     display: none;
@@ -93,7 +94,8 @@ main{
     height: 100%;
 }
 
-.hero-features .title{
+.hero-features .title,
+.contact-form .title{
     padding: 10px;
     text-shadow: 0px  0px 40px var(--text-color) ,
     0px  0px 5px var(--back-color);
@@ -124,6 +126,232 @@ main{
     margin: 15px 0;
 }
 
+.faq-heading{
+    cursor: pointer;
+    color: var(--text-color);
+    background-color: rgb(46, 43, 43);
+    width: 100%;
+    min-height: 80px;
+    text-align: left;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+    transition: all ease-in-out 0.4s;
+    position: relative;
+}
+.faq-heading::after{
+    content: '\002B';
+    top: 50%;
+    right: 2%;
+    transform: translateY(-50%);
+    position: absolute;
+    color: #777;
+    font-weight: bold;
+}
+.faq-heading.active::after{
+    content: "\2212";
+}
+.faq-heading.active, .faq-heading:hover{
+    background-color: var(--back-color);
+
+} 
+.faq-answer{
+    padding: 20px 0;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    color: var(--back-color);
+    transition: all ease-in-out 0.4s;
+}
+
+.wrapper{
+    position: relative;
+    margin: 2rem;
+}
+.wrapper input{
+    opacity:0;
+    visibility: 0;
+}
+.wrapper h3{
+    position: relative;
+    padding: 1rem;
+    font-size: 2rem;
+    background-color: rgb(46, 43, 43);
+}
+.wrapper h3:hover{
+    background-color: var(--back-color);
+}
+.wrapper label{
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.wrapper .panel{
+    max-height:0px;
+    overflow: hidden;
+    transition:max-height 0.5s;
+    box-shadow:0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+.wrapper .panel > *{
+    padding: 10px 0rem 10em 1rem;
+}
+.wrapper .panel .faq-answer{
+    height: 100%;
+}
+.wrapper label::before{
+    content:"";
+    display: inline-block;
+    border: 15px solid transparent;
+    border-left:20px solid white;
+    transition: all ease-in-out 0.3s;
+}
+.wrapper input:checked ~ h3 label::before{
+    border-left:15px solid transparent;
+    border-top:20px solid white;
+    margin-top:12px;
+    margin-right:10px;
+  }
+.wrapper input:checked ~ h3 ~ div.panel{
+    max-height:360px;
+}
+
+/* contact page */
+.contact-form .form-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-wrapper form{
+    width: 50%;
+}
+.form-wrapper form .input-wrapper{
+    display: block;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 10px;
+    position: relative;
+}
+.input-wrapper input,
+.input-wrapper textarea{
+    font-size: 1.2rem;
+    display: block;
+    width: 100%;
+    padding: 7px 3px;
+    position: relative;
+    background-color: transparent;
+    outline: none;
+    transition: all ease-in-out 0.4s;
+    border: none;
+    border-bottom: 3px solid var(--text-color);
+    resize: none;
+    color: var(--text-color);
+}
+.input-wrapper label{
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: block;
+    pointer-events: none;
+    transition: all ease-in-out 0.5s;
+    border-radius: 10px;
+    padding: 0px 5px;
+}
+
+.input-wrapper input:focus,
+.input-wrapper textarea:focus{
+    outline: var(--text-color);
+    color: var(--back-color);
+    background-color: var(--text-color);
+    border-bottom-color: #1f1f11;
+
+}
+.input-wrapper input[type="number"]::-webkit-inner-spin-button{
+    display: none;
+}
+.input-wrapper input:focus ~ label,
+.input-wrapper input:valid ~ label,
+.input-wrapper input:not(:placeholder-shown) ~ label,
+.input-wrapper textarea:focus ~ label,
+.input-wrapper textarea:valid ~ label,
+.input-wrapper textarea:not(:placeholder-shown) ~ label{
+    transform: scale(.9);
+    top: -5px;
+    background-color: var(--text-color);
+    color: var(--back-color);
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder{
+    background: transparent;
+    color: transparent;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder{
+    background: transparent;
+    color: transparent;
+}
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder{
+    background: transparent;
+    color: transparent;
+}
+input::placeholder{
+    background: transparent;
+    color: transparent;
+}
+.send-btn{
+    background: var(--text-color);
+    color: var(--back-color);
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 42px;
+    padding: 0;
+    cursor: pointer;
+    transition: all ease-in-out 0.4s;
+    padding: 5px 25px;
+    border: none;
+    position: relative;
+}
+.send-btn:hover{
+    background: transparent;
+    color: white;
+    box-shadow:
+    0px 0px 20px 0px grey,
+    0px 0px 5px 0px grey,
+    0px 0px 20px 0px white,
+    0px 0px 3px 0px white;
+}
+.send-btn:before,
+.send-btn:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: white;
+  transition:400ms ease all;
+}
+.send-btn:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.send-btn:hover:before,
+.send-btn:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+.features-btn{
+    text-align: center;
+    display: block;
+}
+
 
 
 @media (max-width: 992px){
@@ -137,6 +365,18 @@ main{
         display: block;
     }
     .hero-features .features-content .row .feature{
+        width: 100%;
+    }
+    .form-wrapper form{
+        width: 80%;
+    }
+}
+
+
+
+@media (max-width: 480px){
+    
+    .form-wrapper form{
         width: 100%;
     }
 }

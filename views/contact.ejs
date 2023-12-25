@@ -1,0 +1,41 @@
+<main>
+    <section class="hero-main">
+        <div class="hero-title">
+            <h1 class="header">Contact Us</h1>
+            <p class="subtitle">Please mail us at <a href="mailto:kumar.anshul9809@gmail.com">send mail</a></p>
+            <p class="subtitle">Or use the form given below to mention your querires or feedbacks.</p>
+            <a href="/auth/google" class="hero-btn">Try Notes</a>
+        </div>
+    </section>
+
+    <section class="contact-form">
+        <h3 class="title">Contact Us</h3>
+        <div class="form-wrapper">
+            <form action="/send-mail" method="post">
+                <div class="input-wrapper">
+                    <input type="text" name="name" id="name" placeholder="Name" required/><br/>
+                    <label for="name">Name</label>
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" name="subject" id="subject" placeholder="subject" required/><br/>
+                    <label for="subject">Subject</label>
+                </div>
+                <div class="input-wrapper">
+                    <input type="email" name="email" id="email" placeholder="Email Address" required/><br/>
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-wrapper">
+                    <input type="number" name="phone" id="phone" placeholder="Phone" required/><br/>
+                    <label for="phone">Phone</label>
+                </div>
+                <div class="input-wrapper">
+                    <textarea name="msg" id="msg" placeholder="Message" required></textarea><br/>
+                    <label for="msg">Message</label>
+                </div>
+                <div class="input-wrapper">
+                    <button type="submit" class="send-btn">Send</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>

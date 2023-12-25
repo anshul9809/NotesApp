@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const port = process.env.PORT || 8000;
 const expressLayouts = require("express-ejs-layouts");
+const db = require("./config/mongoose");
 
 
 
@@ -17,6 +18,10 @@ app.use(expressLayouts);
 app.set("layout", "./layouts/main");
 
 app.use("/", require("./routes/index"));
+
+app.get("*", (req,res)=>{
+    res.status(404).render("404")
+});
 
 
 
