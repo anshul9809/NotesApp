@@ -15,7 +15,7 @@ module.exports.sendMail = expressAsyncHandler(async (data,req,res)=>{
     async function main() {
         const info = await transporter.sendMail({
           from: '"Hello 👻 notes team"', // sender address
-          to: "kumar.anshul9809@gmail.com", // list of receivers
+          to: data.to, // list of receivers
           subject: data.subject, // Subject line
           text: data.text, // plain text body
           html: data.htm, // html body

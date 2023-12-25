@@ -57,7 +57,7 @@ module.exports.feedbackForm = expressAsyncHandler( async(req,res)=>{
         mobile is "${req.body.phone}"
         Please reply accordingly.`;
         const data = {
-            to: req.body.email,
+            to: "kumar.anshul9809@gmail.com",
             subject: req.body.subject,
             text: req.body.msg,
             htm: completeMessage,
@@ -78,13 +78,21 @@ module.exports.feedbackForm = expressAsyncHandler( async(req,res)=>{
 module.exports.newsLetterUser = expressAsyncHandler(async (req,res)=>{
     try{
         const email = req.body.email;
-        const alreadySubscribed = await NewsLetter.findOne({email});
+        let alreadySubscribed = await NewsLetter.findOne({email});
         if(alreadySubscribed){
             // res.flash("success", "Already subscribed");
+            console.log("found");
         }
         else{
             alreadySubscribed = await new NewsLetter(req.body);
             await alreadySubscribed.save();
+            const message = `Thankyou ${req.body.email} for subscribing to our news letter, we will share  our updates here`
+            const data = {
+                to: req.body.email,
+                subject: "Newsletter subscrioption",
+                htm: message,
+            };
+            let info = MailController.sendMail(data);
             // res.flash("success","Successfully Subscribed!");
         }
         return res.redirect("/");
