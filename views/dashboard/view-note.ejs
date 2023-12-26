@@ -1,0 +1,29 @@
+<div class="inner-dashboard">
+    <div class="user-title">
+        <h1>Hey, Username</h1>
+    </div>
+
+
+    <div class="new-note-panel">
+        <div class="buttons">
+            <a href="/dashboard" class="new-note">Dashboard</a>
+            <a href="#" id="delete_note" class="new-note">Delete Note</a>
+        </div>
+        <form class="/dashboard/update-note/<%= note.id %>" method="put">
+            <div class="title">
+                <h2>View Note</h2>
+            </div>
+            <div class="input-wrapper">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" value="<%= note.title %>" required>
+            </div>
+            <div class="input-wrapper">
+                <label for="body">Body</label>
+                <textarea name="body" id="body"><%= note.body %></textarea>
+            </div>
+            <div class="input-wrapper">
+                <button class="new-note">Update</button>
+            </div>
+        </form>
+    </div>
+</div>

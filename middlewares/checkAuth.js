@@ -3,7 +3,7 @@ module.exports.checkAuthentication = (req,res, next)=>{
         next();
     }
     else{
-        // res.flash("error","Please login");
+        req.flash("error","Please login");
         console.log("not authenticated");
         return res.redirect("/");
     }

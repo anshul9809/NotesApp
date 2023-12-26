@@ -24,7 +24,7 @@ app.use(session({
     store:MongoStore.create({
         mongoUrl: process.env.DB_CONNECT,
     }),
-    cookie:{maxAge: new Date(Date.now() + (3600000))},
+    cookie:{maxAge: 3600000},
 }));
 
 app.use(passport.initialize());

@@ -62,8 +62,8 @@ passport.serializeUser(function(user,done){
 });
 
 //retrieve user data from session
-passport.deserializeUser(function(id,done){
-    let user = User.findById(id);
+passport.deserializeUser(async function(id,done){
+    let user = await User.findById(id);
     done(null, user);
 });
 

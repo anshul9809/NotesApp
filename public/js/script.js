@@ -14,3 +14,9 @@ if(faq){
     });
   }
 }
+
+
+const deleteNote = document.querySelector("#delete_note");
+if(deleteNote){
+  console.log("found it");
+}

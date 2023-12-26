@@ -1,3 +1,4 @@
+const { notDeepEqual } = require("assert");
 const mongoose = require("mongoose");
 
 const NotesSchema = mongoose.Schema({
@@ -16,3 +17,5 @@ const NotesSchema = mongoose.Schema({
 },{
     timestamps: true,
 });
+
+module.exports = mongoose.model("Note", NotesSchema);
