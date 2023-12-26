@@ -50,7 +50,6 @@ module.exports.feature = expressAsyncHandler((req,res)=>{
 });
 
 module.exports.feedbackForm = expressAsyncHandler( async(req,res)=>{
-    // console.log(req.body);
     try{
         let contactForm = await new ContactForm(req.body);
         await contactForm.save();
@@ -67,12 +66,13 @@ module.exports.feedbackForm = expressAsyncHandler( async(req,res)=>{
         };
         let info = MailController.sendMail(data);
         if(info.messageId){
-            // req.flash('success','Feedback submitted successfully');
+            req.flash('success','Form submitted successfully');
         }
         return res.redirect("/");
     }
     catch(err){
         console.log(err);
+        req.flash("error", "Error while submitting the form");
         return res.redirect('/');
     }
 });
@@ -83,7 +83,7 @@ module.exports.newsLetterUser = expressAsyncHandler(async (req,res)=>{
         const email = req.body.email;
         let alreadySubscribed = await NewsLetter.findOne({email});
         if(alreadySubscribed){
-            // res.flash("success", "Already subscribed");
+            req.flash("success", "Already subscribed");
             console.log("found");
         }
         else{
@@ -96,13 +96,13 @@ module.exports.newsLetterUser = expressAsyncHandler(async (req,res)=>{
                 htm: message,
             };
             let info = MailController.sendMail(data);
-            // res.flash("success","Successfully Subscribed!");
+            req.flash("success","Successfully Subscribed!");
         }
         return res.redirect("/");
 
     }catch(err){
-        console.error(err.message);
-        // res.flash("error", "Failed to subscribe, please try again");
+        console.log(err.message);
+        req.flash("error", "Failed to subscribe, please try again");
         return res.redirect("/");
     }
 })

@@ -14,4 +14,75 @@ body::-webkit-scrollbar{
 }
 body{
     background-color: black;
+    color: var(--text-color);
 }
+
+.dashboard{
+    box-sizing: border-box;
+    background-color: red;
+    padding: 10px 0;
+    min-height: 400px;
+    display: grid;
+    justify-items: center;
+}
+.inner-dashboard{
+    width: 90%;
+    background-color: brown;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.inner-dashboard .user-title{
+    display: flex;
+    justify-content: space-between;
+}
+.inner-dashboard .user-title h1{
+    color: var(--text-color);
+    font-size: 1.5rem;
+    text-shadow: 0px 0px 3px currentColor;
+}
+.new-note{
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 8px 7px;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 10px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(
+    to right,
+    #29323c,
+    #485563,
+    #2b5876,
+    #4e4376
+  );
+  text-align: center;
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+.new-note:hover{
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+
+.parent-note{
+    background-color: green;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.blank-notes{
+    font-size: 1.2rem;
+    display: grid;
+    gap: 10px;
+}
+

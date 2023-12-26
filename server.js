@@ -3,6 +3,9 @@ const express = require("express");
 const port = process.env.PORT || 8000;
 const expressLayouts = require("express-ejs-layouts");
 const db = require("./config/mongoose");
+const flash = require("connect-flash");
+
+const flashmiddleware = require("./middlewares/flashMiddleware");
 
 
 const session = require("express-session");
@@ -27,6 +30,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+//setting the flash messages
+app.use(flash());
+app.use(flashmiddleware.setFlash);
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());

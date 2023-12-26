@@ -11,7 +11,6 @@ module.exports.sendMail = expressAsyncHandler(async (data,req,res)=>{
           pass: process.env.GMAIL_PASSWORD,
         },
     });
-    console.log("i'm here");
     async function main() {
         const info = await transporter.sendMail({
           from: '"Hello 👻 notes team"', // sender address
@@ -21,10 +20,11 @@ module.exports.sendMail = expressAsyncHandler(async (data,req,res)=>{
           html: data.htm, // html body
         }, (err, info)=>{
           if(err){
-            console.log("errir mail, ",err)
+            console.log("error mail, ",err)
           }
           else{
             console.log("message sent ", info);
+            req.flash("success", "Submitted successfully");
           }
         });
     }
