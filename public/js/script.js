@@ -18,5 +18,24 @@ if(faq){
 
 const deleteNote = document.querySelector("#delete_note");
 if(deleteNote){
-  console.log("found it");
+  const modal = document.getElementById("delete-modal");
+  const closeButton = document.getElementsByClassName("close-button")[0];
+  const cancelButton = document.getElementsByClassName("cancel")[0];
+  cancelButton.addEventListener("click", (event)=>{
+    event.preventDefault();
+    modal.classList.remove("active");
+  });
+
+  deleteNote.onclick = (event) => {
+    event.preventDefault();
+    modal.classList.add("active");
+  };
+  closeButton.onclick = () => {
+    modal.classList.remove("active");
+  };
+  window.onclick = (event) => {
+    if (event.target == modal ) {
+      modal.classList.remove("active");
+    }
+  };
 }

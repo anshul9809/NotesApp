@@ -26,7 +26,6 @@ body{
 }
 .inner-dashboard{
     width: 90%;
-    /* background-color: brown; */
     box-sizing: border-box;
 }
 .inner-dashboard .user-title{
@@ -71,6 +70,20 @@ body{
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
 }
+.cancel{
+    background: var(--text-color) !important;
+    color: black;
+}
+.close-button{ /* inside modal */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'FontAwesome';
+    font-size: 1.1em;
+}
 
 
 .parent-note{
@@ -99,6 +112,9 @@ body{
     transform-style: preserve-3d;
     min-height: 150px;
 }
+.notes-wrapper .search-note{
+    min-height: 50px;
+}
 .note a{
     color: var(--text-color);
 }
@@ -109,7 +125,7 @@ body{
 }
 .note .note-body{
     color: rgb(240, 240, 240);
-    font-size: 1.1rem
+    font-size: 1.1rem;
 }
 .blank-notes{
     font-size: 1.2rem;
@@ -215,14 +231,60 @@ form .input-wrapper textarea:focus{
 }
 
 
+.modal{
+    position: fixed; 
+    z-index: 3;
+    left: 0;
+    top: -100%;
+    width: 100%; 
+    height: 100%;
+    overflow: auto;
+    display: grid;
+    justify-items: center;
+    transition: all ease-in-out 0.4s;
+}
+.modal .modal-content{
+    width: 50%;
+    height: fit-content;
+    background-color: rgba(0,0,0,0.9);
+    backdrop-filter: blur(50px);
+    box-shadow: 0px 0px 10px white;
+    box-sizing: border-box;
+    padding: 20px;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    font-size: 2rem;
+}
+.modal-content p{
+    text-align: center;
+    position: relative;
+    margin: 20px 0;
+}
+.modal-content .modal-buttons{
+    display: flex;
+    justify-content: right;
+}
+.modal.active{
+    top: 0;
+}
+
+
 
 @media (max-width: 768px){
-    .new-note-panel form, .buttons{
+    .new-note-panel form, .buttons, .modal .modal-content{
         width: 80%;
+    }
+    .modal .modal-content{
+        font-size: 1.5rem;
     }
 }
 @media (max-width: 480px){
-    .new-note-panel form, .buttons{
+    .new-note-panel form, .buttons, .modal .modal-content{
         width: 100%;
+    }
+    .modal .modal-content{
+        font-size: 1rem;
     }
 }

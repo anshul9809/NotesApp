@@ -1,0 +1,22 @@
+<div class="inner-dashboard">
+    <div class="user-title">
+        <a href="/dashboard" class="new-note">Dashboard</a>
+        <a href="/dashboard/create-note" class="new-note"><h3>+ New Note</h3></a>
+    </div>
+    <div class="notes-wrapper">
+        <% if(searchResults != '') { %>
+            <% searchResults.forEach(function (note, index) { %>
+              
+                <div class="note search-note">
+                    
+                    <a href="/dashboard/view-note/<%= note._id %>">
+                        <h4><%= note.title %></h4>
+                    </a>
+                </div>
+      
+            <% }) %>
+          <% } else { %>
+            <p>No items found.</p>
+          <% } %>
+    </div>
+</div>

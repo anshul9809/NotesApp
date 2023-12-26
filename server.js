@@ -4,6 +4,7 @@ const port = process.env.PORT || 8000;
 const expressLayouts = require("express-ejs-layouts");
 const db = require("./config/mongoose");
 const flash = require("connect-flash");
+const methodOverride = require("method-override");
 
 const flashmiddleware = require("./middlewares/flashMiddleware");
 
@@ -29,6 +30,8 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(methodOverride("_method"));
 
 
 //setting the flash messages

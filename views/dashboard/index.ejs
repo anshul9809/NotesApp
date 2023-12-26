@@ -1,6 +1,6 @@
 <div class="inner-dashboard">
     <div class="user-title">
-        <h1>Hey, Username</h1>
+        <h1>Hey, <%= userName %></h1>
         <a href="/dashboard/create-note" class="new-note"><h3>+ New Note</h3></a>
     </div>
 
@@ -11,7 +11,7 @@
             
                 <%for(var i=0; i < notes.length; i++) { %>
                     <div class="note">
-                        <a href="/dashboard/view-note/<%= notes[i]._id %>">
+                        <a href="/dashboard/view-note/<%= notes[i]._id %>" class="note-link">
                             <h4 class="note-title"><%= notes[i].title %></h4>
                             <p class="note-body"><%= notes[i].body %></p>
                         </a>

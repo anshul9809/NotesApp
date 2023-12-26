@@ -1,15 +1,15 @@
 <div class="inner-dashboard">
     <div class="user-title">
-        <h1>Hey, Username</h1>
+        <h1>Hey, <%= userName %></h1>
     </div>
 
 
     <div class="new-note-panel">
         <div class="buttons">
             <a href="/dashboard" class="new-note">Dashboard</a>
-            <a href="#" id="delete_note" class="new-note">Delete Note</a>
+            <a href="" id="delete_note" class="new-note">Delete Note</a>
         </div>
-        <form class="/dashboard/update-note/<%= note.id %>" method="put">
+        <form method="POST" action="/dashboard/update-note/<%= note._id %>?_method=PUT" >
             <div class="title">
                 <h2>View Note</h2>
             </div>
@@ -25,5 +25,21 @@
                 <button class="new-note">Update</button>
             </div>
         </form>
+    </div>
+</div>
+
+
+<div class="modal" id="delete-modal">
+    <div class="modal-content">
+        <div class="close-button">&times;</div>
+        <p>You are about to delete this note. Are you sure you want to delete it??</p>
+        <div class="modal-buttons">
+            <form action="/dashboard/delete-note/<%= note._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="new-note">Delete</button>
+                <a href = "#" class="new-note cancel">Cancel</a>
+            </form>
+
+        </div>
+
     </div>
 </div>

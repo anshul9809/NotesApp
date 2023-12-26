@@ -46,9 +46,8 @@ router.get('/auth/google/callback',
   passport.authenticate('google', {
     failureRedirect: '/',
     successRedirect:"/dashboard",
-    
-    // successFlash: "Logged in successfully",
-    // failureFlash: "Error while logging in"
+    successFlash: "Logged in successfully",
+    failureFlash: "Error while logging in"
     }),
     function(req, res) {
         // Successful authentication, redirect home.
@@ -71,10 +70,8 @@ router.get("/logout", async (req,res)=>{
     req.session.destroy((error)=>{
         if(error){
             console.log("error while logout ", error);
-            // res.flash("error", "Faied to logout");
         }
         else{
-            // res.flash("success", "Logged Out Successfully");
             res.redirect("/");
         }
     })
