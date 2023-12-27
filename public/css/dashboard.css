@@ -113,7 +113,7 @@ body{
     min-height: 150px;
 }
 .notes-wrapper .search-note{
-    min-height: 50px;
+    min-height: 20px;
 }
 .note a{
     color: var(--text-color);
